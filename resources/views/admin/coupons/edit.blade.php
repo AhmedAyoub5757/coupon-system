@@ -1,0 +1,4 @@
+@extends('layouts.app')
+@section('content')
+<div class="admin-shell"><nav class="nav"><a class="brand" href="{{ route('shop') }}"><span class="brand-mark">M</span> MORROW<span class="brand-dot">.</span></a><a class="button button-light" href="{{ route('coupons.index') }}">← Back to coupons</a></nav><div class="form-heading"><p class="eyebrow">PROMOTION BUILDER / EDITING {{ $coupon->code }}</p><h1>Refine the <em>rule.</em></h1></div><form class="coupon-editor" method="post" action="{{ route('coupons.update', $coupon) }}">@csrf @method('PUT') @include('admin.coupons.form', ['coupon' => $coupon])</form></div>
+@endsection

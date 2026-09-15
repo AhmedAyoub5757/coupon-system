@@ -18,6 +18,9 @@ class CreateCouponsTable extends Migration
             $table->string('code')->unique();
             $table->enum('type', ['fixed', 'percentage']);
             $table->decimal('value', 8, 2);
+            $table->enum('scope', ['all', 'category', 'products'])->default('all');
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->json('product_ids')->nullable();
             $table->decimal('min_cart_value', 10, 2)->nullable();
             $table->unsignedInteger('usage_limit')->nullable();
             $table->unsignedInteger('used_count')->default(0);
